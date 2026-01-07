@@ -143,6 +143,4 @@ Tüm hatalar `GlobalExceptionHandler` tarafından yakalanır.
 - [ ] JWT token-based authentication
 - [ ] API Rate Limiting
 
----
 
-**Sürüm**: 1.0.0
