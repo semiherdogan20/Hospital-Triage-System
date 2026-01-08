@@ -12,7 +12,7 @@ import service.TriageRuleService;
 import java.util.Map;
 import java.util.Optional;
 
-@RestController // 1. DÜZELTME: Controller'ın JSON dönebilmesi için şart
+@RestController 
 @RequestMapping("/api/v1/rules")
 public class AdminRuleController {
 
@@ -25,8 +25,8 @@ public class AdminRuleController {
         this.triageRuleService = triageRuleService;
     }
 
-    @PostMapping
-    public ResponseEntity<?> addRule(@RequestBody Rule rule) { // 2. DÜZELTME: @RequestBody ekledim
+    @PostMapping("/addRule")
+    public ResponseEntity<?> addRule(@RequestBody Rule rule) { 
         try {
             triageRuleService.validateRule(rule);
 
