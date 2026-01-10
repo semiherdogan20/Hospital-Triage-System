@@ -17,10 +17,8 @@ public class DataSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // Eğer veritabanı boşsa (daha önce eklemediysek) kuralları ekle
         if (ruleRepository.count() == 0) {
 
-            // 1. KURAL: Nabız 100'den büyükse 10 PUAN
             Rule rule1 = new Rule();
             rule1.setConditionField("pulse");
             rule1.setOperator(">");
@@ -29,7 +27,6 @@ public class DataSeeder implements CommandLineRunner {
             rule1.setPriority(1);
             ruleRepository.save(rule1);
 
-            // 2. KURAL: Ateş 38.0'dan büyükse 20 PUAN
             Rule rule2 = new Rule();
             rule2.setConditionField("bodyTemp");
             rule2.setOperator(">");
@@ -38,7 +35,6 @@ public class DataSeeder implements CommandLineRunner {
             rule2.setPriority(2);
             ruleRepository.save(rule2);
 
-            // 3. KURAL: Tansiyon 160'tan büyükse 15 PUAN
             Rule rule3 = new Rule();
             rule3.setConditionField("systolicBp");
             rule3.setOperator(">");
@@ -46,8 +42,6 @@ public class DataSeeder implements CommandLineRunner {
             rule3.setScoreImpact(15);
             rule3.setPriority(3);
             ruleRepository.save(rule3);
-
-            System.out.println("----- KURALLAR VERİTABANINA YÜKLENDİ -----");
         }
     }
 }
